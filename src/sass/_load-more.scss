@@ -6,6 +6,12 @@
   margin-left: calc(100% / 2 - 48px);
 }
 
+.load-more:hover,
+.load-more:focus {
+  background: #1a2649;
+  scale: 1.2;
+}
+
 .load-more:disabled {
   background: #7a7b7f;
 }
