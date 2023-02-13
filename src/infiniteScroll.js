@@ -34,7 +34,9 @@ searchForm.addEventListener('submit', onSearch);
 
 const loading = document.querySelector('.loading');
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', infiniteScroll);
+
+function infiniteScroll() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
   console.log({ scrollTop, scrollHeight, clientHeight });
@@ -44,7 +46,7 @@ window.addEventListener('scroll', () => {
   } else if (scrollHeight - scrollTop === clientHeight) {
     galleryEndInfo();
   }
-});
+}
 
 function showLoading() {
   loading.classList.add('show');
@@ -56,19 +58,6 @@ function showRemove() {
 }
 
 // =======================================================
-
-// function scrollBy() {
-//   const { height: cardHeight } = document
-//     .querySelector('.gallery')
-//     .firstElementChild.getBoundingClientRect();
-
-//   window.scrollBy({
-//     top: cardHeight * 2.2,
-//     behavior: 'smooth',
-//   });
-// }
-
-// =========================================================
 
 async function onSearch(e) {
   e.preventDefault();
@@ -124,6 +113,8 @@ function clearGallery() {
   gallery.innerHTML = '';
 }
 
+// ========================================================
+
 function createMarkup({
   largeImageURL,
   webformatURL,
@@ -154,6 +145,8 @@ function createMarkup({
 </div></a>
   `;
 }
+
+// ========================================================
 
 function nextPage() {
   page += 1;
