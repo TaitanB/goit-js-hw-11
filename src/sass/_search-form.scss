@@ -1,0 +1,64 @@
+body {
+  background: #dce1f1;
+}
+
+.search-form {
+  text-align: center;
+  padding: 10px;
+  background: #3550a2;
+  position: fixed;
+  width: 100%;
+}
+
+.search-form > input {
+  padding: 2px;
+}
+
+button {
+  border-radius: 6px;
+  border-color: inherit;
+  padding: 5px 15px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-gap: 15px;
+  padding: 65px 15px 40px;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery a {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+  width: 360px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.photo-card > img {
+  display: block;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.photo-card > img:hover {
+  transform: scale(1.03);
+}
+
+.info {
+  display: flex;
+  padding: 10px;
+  text-align: center;
+  color: #000;
+  gap: 5px;
+}
+
+// .info-item {
+// }

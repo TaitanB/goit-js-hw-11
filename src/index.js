@@ -2,6 +2,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Notiflix from 'notiflix';
 import axios from 'axios';
+import scrollBy from './scrollBy.js';
 
 // ======================================
 
@@ -55,6 +56,10 @@ async function fetchImages() {
 
     appendImagesToGallery(markup);
     lightbox.refresh();
+
+    if (totalHits > per_page && page - 1 !== 1) {
+      scrollBy();
+    }
 
     loadMoreBtn.classList.remove('is-hidden');
     loadMoreBtnEnabled();
