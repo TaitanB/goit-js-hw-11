@@ -1,33 +1,37 @@
-body {
-  background: #dce1f1;
-}
-
 .search-form {
   text-align: center;
-  padding: 10px;
+  padding: 52px 11px 11px;
   background: #3550a2;
   position: fixed;
   width: 100%;
 }
 
 .search-form > input {
+  font-size: 16px;
+  line-height: 1.5;
   padding: 2px;
-}
-
-button {
-  border-radius: 6px;
-  border-color: inherit;
-  padding: 5px 15px;
+  border-radius: 4px;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-gap: 15px;
-  padding: 65px 15px 40px;
+  padding: 116px 25px 40px;
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding-left: 15px;
+    padding-top: 65px;
+  }
+
+  .search-form {
+    padding-top: 11px;
+  }
 }
 
 .gallery a {
@@ -60,5 +64,13 @@ button {
   gap: 5px;
 }
 
-// .info-item {
-// }
+.submit {
+  font-size: 16px;
+  line-height: 1.5;
+  background: #dce1f1;
+}
+
+.submit:disabled {
+  background: #7a7b7f;
+  color: #dce1f1;
+}

@@ -27,8 +27,21 @@ async function searchImage() {
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
+const submitBtn = document.querySelector('.submit');
 
 searchForm.addEventListener('submit', onSearch);
+searchForm.addEventListener('input', onSabmitBtn);
+
+function onSabmitBtn(e) {
+  // console.log(e.currentTarget.elements.searchQuery.value);
+  if (e.currentTarget.elements.searchQuery.value.trim().length !== 0) {
+    submitBtn.disabled = false;
+  }
+}
+
+function ofSabmitBtn() {
+  submitBtn.disabled = true;
+}
 
 // =========================================================
 
@@ -66,9 +79,11 @@ async function onSearch(e) {
   const value = form.elements.searchQuery.value.trim();
   searchQuery = value;
 
+  onSabmitBtn(e);
   resetPage();
   clearGallery();
   await fetchImages().finally(() => form.reset());
+  ofSabmitBtn();
 }
 
 async function fetchImages() {

@@ -1,5 +1,15 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+body {
+  background: #dce1f1;
+}
+
 a {
   text-decoration: none;
+}
+
+button {
+  border-radius: 6px;
+  border-color: inherit;
+  padding: 5px 15px;
 }
