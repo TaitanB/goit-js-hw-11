@@ -29,10 +29,19 @@ const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 const submitBtn = document.querySelector('.submit');
+const input = document.querySelector('#search-form > input');
 
 searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', fetchImages);
 searchForm.addEventListener('input', onSabmitBtn, ofSabmitBtn);
+input.addEventListener('input', invalidInput);
+
+function invalidInput(e) {
+  if (e.data === null) {
+    submitBtn.disabled = true;
+  }
+  return;
+}
 
 function onSabmitBtn(e) {
   // console.log(e.currentTarget.elements.searchQuery.value);
@@ -53,8 +62,10 @@ async function onSearch(e) {
   searchQuery = value;
 
   onSabmitBtn(e);
+  invalidInput(e);
   resetPage();
   clearGallery();
+
   await fetchImages().finally(() => form.reset());
   ofSabmitBtn();
 }
